@@ -121,9 +121,8 @@ $blockID = 'listing-' . $block['id'];
                ?>
             </select>
 
-            <div class="<?php echo esc_attr($blockClass . '-search'); ?>">
-                the search
-            </div>
+            <input type="text" class="<?php echo esc_attr($blockClass . '-search'); ?>" placeholder="Search..." />
+
         </div>
         <div class="<?php echo esc_attr($blockClass . '-grid'); ?>">
             here goes the grid and php listing
