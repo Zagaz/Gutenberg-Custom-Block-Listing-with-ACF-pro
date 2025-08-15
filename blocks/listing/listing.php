@@ -11,9 +11,8 @@
 ?>
 <pre>
     <?php
-    // var_dump($block); // Debugging line to check block attributes
-    // var_dump($is_preview); // Debugging line to check if in preview mode
-    var_dump($content);
+// var_dump the acf post type
+
 
     ?>
 </pre>
@@ -29,10 +28,17 @@ $events = new WP_Query(array(
 ));
 
 echo '<pre>';
-var_dump( $events->query['post_type'] );
+// var_dump($events);
 echo '</pre>';
 
-$post_type_name = $events->query['post_type'] ;
+// get the events taxonomy
+
+// var_dump($event_taxonomies);
+ // var_dump get the post-type taxonomy
+$post_type_taxonomies = get_object_taxonomies($post_type, 'names');
+
+
+$post_type_name = $events->query['post_type'];
 
 ?>
 
@@ -95,10 +101,26 @@ $blockID = 'listing-' . $block['id'];
         </div>
 
         <div class="<?php echo esc_attr($blockClass . '-inputs'); ?>">
-        
-            <div class="<?php echo esc_attr($blockClass . '-selector'); ?>">
-                the selector
-            </div>
+
+            <select class="<?php echo esc_attr($blockClass . '-selector'); ?>">
+                <option value="">Select an option</option>
+               <?php
+               // here I need the list of the terms related to 'events' post type.
+               $event_taxonomies = get_object_taxonomies('event', 'names');
+               foreach ($event_taxonomies as $taxonomy) {
+                   $terms = get_terms(array(
+                       'taxonomy' => $taxonomy,
+                       'hide_empty' => true,
+                   ));
+                   if (!empty($terms) && !is_wp_error($terms)) {
+                       foreach ($terms as $term) {
+                           echo '<option value="' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</option>';
+                       }
+                   }
+               }
+               ?>
+            </select>
+
             <div class="<?php echo esc_attr($blockClass . '-search'); ?>">
                 the search
             </div>
