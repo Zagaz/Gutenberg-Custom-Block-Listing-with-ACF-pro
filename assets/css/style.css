@@ -195,13 +195,13 @@
 /**
  * Frontend Wrapper
  */
-.acf-listing-wrapper {
+.acf-listing {
   width: 100% !important;
   height: -moz-max-content;
   height: max-content;
   display: flex;
   justify-content: center;
-  background-color: red;
+  background-color: rgb(25, 6, 101);
 }
 
 /**
@@ -213,7 +213,7 @@
   height: max-content;
   display: flex;
   justify-content: center;
-  background-color: red;
+  background-color: rgb(25, 6, 101);
 }
 
 /**
