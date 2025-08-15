@@ -1,0 +1,17 @@
+/**
+ * ACF Hero Block Styles
+ * Unified styling for both frontend and editor
+ * Component-based structure
+ */
+
+// Abstract
+@use 'abstract/reset';
+@use 'abstract/variables';
+@use 'abstract/mixins';
+
+// Components
+@use 'components/hero-block'; //Here is where the magic happens!
+@use 'components/youtube-background'; // YouTube background styles
+@use 'components/frontend';
+@use 'components/editor';
+@use 'components/editor-youtube'; // Editor-specific YouTube fixes 
