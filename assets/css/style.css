@@ -178,6 +178,11 @@
 .acf-listing .acf-listing-wrapper .acf-listing-inputs {
   background-color: cyan;
   padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: chartreuse;
 }
 
 /**
@@ -206,6 +211,11 @@
 .wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-inputs {
   background-color: cyan;
   padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: chartreuse;
 }
 
 /**

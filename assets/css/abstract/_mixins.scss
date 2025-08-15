@@ -25,6 +25,11 @@
         .acf-listing-inputs{
             background-color: cyan;
             padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+            background-color: chartreuse;
         }
     }
 }

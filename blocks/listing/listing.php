@@ -66,7 +66,7 @@ $blockID = 'listing-' . $block['id'];
         </div>
 
         <div class="<?php echo esc_attr($blockClass . '-inputs'); ?>">
-            here goes the inputs
+        
             <div class="<?php echo esc_attr($blockClass . '-selector'); ?>">
                 the selector
             </div>
