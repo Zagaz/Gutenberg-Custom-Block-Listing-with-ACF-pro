@@ -13,8 +13,29 @@
     <?php
     // var_dump($block); // Debugging line to check block attributes
     // var_dump($is_preview); // Debugging line to check if in preview mode
+    var_dump($content);
+
     ?>
 </pre>
+
+<?php 
+
+$post_type = 'event'; // Custom post type slug
+$posts_per_page = -1; // Number of posts to display, -1 for all
+// Query for events
+$events = new WP_Query(array(
+    'post_type' => $post_type,
+    'posts_per_page' => $posts_per_page,
+));
+
+echo '<pre>';
+var_dump( $events->query['post_type'] );
+echo '</pre>';
+
+$post_type_name = $events->query['post_type'] ;
+
+?>
+
 <?php
 // Create id attribute allowing for custom "anchor" value
 $id = 'listing-' . $block['id'];
@@ -60,8 +81,17 @@ $blockID = 'listing-' . $block['id'];
     
     <div class="<?php echo esc_attr($blockClass . '-wrapper'); ?>" style="<?php echo esc_attr($style); ?>">
         The root
-        <div class="<?php echo esc_attr($blockClass . '-type'); ?>">
-            <h1 class="<?php echo esc_attr($blockClass . '-type-title'); ?>"> the type name</h1>
+        <div class="<?php echo esc_attr($blockClass . '-type'); ?>"> 
+            <?php
+            if (!$post_type_name || !empty($post_type_name)) :?>
+             <h1 class="<?php echo esc_attr($blockClass . '-type-title'); ?>"> 
+                List of:
+                <?php
+                $post_type_name = ucfirst($post_type_name);
+                echo esc_html( $post_type_name );
+                 ?>
+            </h1>
+            <?php endif; ?>           
         </div>
 
         <div class="<?php echo esc_attr($blockClass . '-inputs'); ?>">
@@ -105,13 +135,13 @@ $blockID = 'listing-' . $block['id'];
 <?php // This will display the event listing block content
 ?>
 <?php
-$post_type = 'event'; // Custom post type slug
-$posts_per_page = -1; // Number of posts to display, -1 for all
-// Query for events
-$events = new WP_Query(array(
-    'post_type' => $post_type,
-    'posts_per_page' => $posts_per_page,
-));
+// $post_type = 'event'; // Custom post type slug
+// $posts_per_page = -1; // Number of posts to display, -1 for all
+// // Query for events
+// $events = new WP_Query(array(
+//     'post_type' => $post_type,
+//     'posts_per_page' => $posts_per_page,
+// ));
 
 
 
@@ -135,6 +165,6 @@ $events = new WP_Query(array(
 // }
 
 // // Reset post data
-// wp_reset_postdata();
+ wp_reset_postdata();
 ?>
 </div>
