@@ -184,6 +184,14 @@
   gap: 10px;
   background-color: chartreuse;
 }
+.acf-listing .acf-listing-wrapper .acf-listing-grid {
+  background-color: violet;
+  padding: 10px;
+}
+.acf-listing .acf-listing-wrapper .acf-listing-pagination {
+  background-color: cornsilk;
+  padding: 10px;
+}
 
 /**
  * Editor Wrapper
@@ -216,6 +224,14 @@
   justify-content: space-between;
   gap: 10px;
   background-color: chartreuse;
+}
+.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-grid {
+  background-color: violet;
+  padding: 10px;
+}
+.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-pagination {
+  background-color: cornsilk;
+  padding: 10px;
 }
 
 /**

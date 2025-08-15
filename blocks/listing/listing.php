@@ -61,7 +61,6 @@ $blockID = 'listing-' . $block['id'];
     <div class="<?php echo esc_attr($blockClass . '-wrapper'); ?>" style="<?php echo esc_attr($style); ?>">
         The root
         <div class="<?php echo esc_attr($blockClass . '-type'); ?>">
-            here goes the Type Title
             <h1 class="<?php echo esc_attr($blockClass . '-type-title'); ?>"> the type name</h1>
         </div>
 
