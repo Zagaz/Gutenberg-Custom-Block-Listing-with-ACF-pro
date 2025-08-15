@@ -31,6 +31,7 @@
   height: fit-content;
   height: 100vw;
   padding: 30px;
+  background-color: red;
 }
 @media (min-width: 450px) {
   .acf-listing {
@@ -46,47 +47,6 @@
   .acf-listing {
     height: 80vh;
   }
-}
-.acf-listing .hero-content {
-  max-width: 800px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: nowrap;
-}
-.acf-listing .hero-content .acf-hero-title {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  /* Using CSS custom properties set in PHP */
-  color: var(--text-color, #000);
-}
-.acf-listing .hero-content .acf-hero-subtitle {
-  font-size: 2rem;
-  font-weight: normal;
-  margin-bottom: 20px;
-  /* Using CSS custom properties set in PHP */
-  color: var(--text-color, #000);
-}
-.acf-listing .hero-content .acf-hero-description {
-  text-align: center;
-  font-size: 1rem;
-  font-weight: normal;
-  margin-bottom: 20px;
-  /* Using CSS custom properties set in PHP */
-  color: var(--text-color, #000);
-}
-.acf-listing .hero-content .acf-hero-cta-button {
-  padding-top: 10px;
-  padding-right: 20px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 0;
 }
 
 /**
@@ -201,7 +161,10 @@
   height: max-content;
   display: flex;
   justify-content: center;
-  background-color: rgb(25, 6, 101);
+  background-color: antiquewhite;
+}
+.acf-listing-wrapper {
+  background-color: red;
 }
 
 /**
@@ -213,7 +176,10 @@
   height: max-content;
   display: flex;
   justify-content: center;
-  background-color: rgb(25, 6, 101);
+  background-color: antiquewhite;
+}
+.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing-wrapper {
+  background-color: red;
 }
 
 /**

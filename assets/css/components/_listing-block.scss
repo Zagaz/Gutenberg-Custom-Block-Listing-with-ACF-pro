@@ -25,6 +25,8 @@
     height: fit-content;
     height: 100vw; 
     padding: 30px;
+    background-color: red;;
+    
     @media(min-width: 450px) {
         height: 50vh;
     }
@@ -36,37 +38,5 @@
 
     }
 
-    .hero-content {
-        max-width: var.$content-max-width;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: nowrap;
-
-        .acf-hero-title {
-            @include mixins.content(3rem, bold, 20px);
-            @include mixins.dynamic-text-color;
-            // text align center
-           
-        }
-
-        .acf-hero-subtitle {
-
-            @include mixins.content(2rem, normal, 20px);
-            @include mixins.dynamic-text-color;
-        }
-        
-        .acf-hero-description {
-            
-            text-align: center;
-            @include mixins.content(1rem, normal, 20px);
-            @include mixins.dynamic-text-color;
-        }
-
-        .acf-hero-cta-button {
-            @include cta(10px, 20px, 10px, 20px, 5px, none);
-            @include mixins.content(1rem, bold, 0);
-        }
-    }
+    
 }

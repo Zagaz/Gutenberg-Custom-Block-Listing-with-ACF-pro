@@ -3,18 +3,24 @@
  */
 
 // Editor mixin for shared styling between frontend and editor
-@mixin editor {
+// .acf-listing is the root class
+@mixin acf-listing {
+    //This is the root acf-listing
     width: 100% !important;
-       height: max-content;
+    height: max-content;
     display: flex;
     justify-content: center;
-    // make a darker layer for text contrast
-    background-color: rgb(25, 6, 101);
-
-
- 
-  
+    background-color: antiquewhite;
+    &-wrapper{
+        background-color: red;
+    }
 }
+
+
+
+
+
+
 
 @mixin content($size, $weight, $marginButton) {
     font-size: $size;

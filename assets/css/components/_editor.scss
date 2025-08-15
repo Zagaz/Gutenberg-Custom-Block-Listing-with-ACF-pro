@@ -8,8 +8,8 @@
     .acf-block-body {
         .acf-block-preview {
             .acf-listing {               
-                @include mix.editor();
-            }
+                   @include mix.acf-listing();
         }
     }
+}
 }
