@@ -11,8 +11,21 @@
     display: flex;
     justify-content: center;
     background-color: antiquewhite;
-    &-wrapper{
-        background-color: red;
+    .acf-listing-wrapper{
+        max-width: 1600px;
+        width: 100%;
+        background-color: rgb(127, 130, 215);
+        .acf-listing-type{
+            background-color: rgb(43, 188, 135);
+            padding: 10px;
+            .acf-listing-type-title{
+                background-color: brown;
+            }
+        }
+        .acf-listing-inputs{
+            background-color: cyan;
+            padding: 10px;
+        }
     }
 }
 
