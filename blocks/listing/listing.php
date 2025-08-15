@@ -21,20 +21,13 @@
 
 $post_type = 'event'; // Custom post type slug
 $posts_per_page = -1; // Number of posts to display, -1 for all
+
 // Query for events
 $events = new WP_Query(array(
     'post_type' => $post_type,
     'posts_per_page' => $posts_per_page,
 ));
 
-echo '<pre>';
-// var_dump($events);
-echo '</pre>';
-
-// get the events taxonomy
-
-// var_dump($event_taxonomies);
- // var_dump get the post-type taxonomy
 $post_type_taxonomies = get_object_taxonomies($post_type, 'names');
 
 
@@ -58,8 +51,6 @@ $block_name = 'acf-listing'; // Block name (should be lowercase and without spac
 $block_align_text = isset($block['align_text']) ? $block['align_text'] : 'left';
 $block_align = $block_name . '-text-align-' . $block_align_text;
 
-// Create class attribute allowing for custom "className" and "align" values
-$classes = 'hero-block';
 
 // Add editor and preview classes if in editor
 
@@ -106,8 +97,8 @@ $blockID = 'listing-' . $block['id'];
                 <option value="">Select an option</option>
                <?php
                // here I need the list of the terms related to 'events' post type.
-               $event_taxonomies = get_object_taxonomies('event', 'names');
-               foreach ($event_taxonomies as $taxonomy) {
+               $post_type_taxonomies = get_object_taxonomies('event', 'names');
+               foreach ($post_type_taxonomies as $taxonomy) {
                    $terms = get_terms(array(
                        'taxonomy' => $taxonomy,
                        'hide_empty' => true,
@@ -125,7 +116,35 @@ $blockID = 'listing-' . $block['id'];
 
         </div>
         <div class="<?php echo esc_attr($blockClass . '-grid'); ?>">
-            here goes the grid and php listing
+            <div class="<?php echo esc_attr($blockClass . '-grid-inner'); ?>">
+                <?php
+                if ($events->have_posts()) {
+                    while ($events->have_posts()) {
+                        $events->the_post();
+                        ?>
+                        <div class="<?php echo esc_attr($blockClass . '-grid-item'); ?>">
+                            <img src="<?php echo esc_url(get_the_post_thumbnail_url()); ?>" alt="<?php the_title(); ?>" class="<?php echo esc_attr($blockClass . '-grid-item-image'); ?>" />
+
+                            <h2 class="<?php echo esc_attr($blockClass . '-grid-item-title'); ?>"><?php the_title(); ?></h2>
+                            <div class="<?php echo esc_attr($blockClass . '-grid-item-excerpt'); ?>"><?php the_excerpt(); ?></div>
+                        </div>
+                        <?php
+                    }
+                } else {
+                    echo '<p>No events found.</p>';
+                }
+                ?>
+            </div>
+        </div>
+
+        <div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
+            Here goes the pagination
+        </div>
+
+    </div>
+
+
+          
         </div>
 
         <div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
@@ -136,56 +155,7 @@ $blockID = 'listing-' . $block['id'];
 
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//=========
-<?php // This will display the event listing block content
-?>
 <?php
-// $post_type = 'event'; // Custom post type slug
-// $posts_per_page = -1; // Number of posts to display, -1 for all
-// // Query for events
-// $events = new WP_Query(array(
-//     'post_type' => $post_type,
-//     'posts_per_page' => $posts_per_page,
-// ));
-
-
-
-
-
-
-
-
-//==========================================
-
-// Check if there are any events to display
-// if ($events->have_posts()) {
-//     echo '<ul class="event-list">';
-//     while ($events->have_posts()) {
-//         $events->the_post();
-//         echo '<li>' . get_the_title() . '</li>';
-//     }
-//     echo '</ul>';
-// } else {
-//     echo '<p>No events found.</p>';
-// }
-
-// // Reset post data
- wp_reset_postdata();
+wp_reset_postdata();
 ?>
 </div>

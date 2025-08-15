@@ -34,6 +34,31 @@
         .acf-listing-grid{
             background-color: violet;
             padding: 10px;
+            .acf-listing-grid-inner{
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 10px;
+                .acf-listing-grid-item{
+                    background-color: lightblue;
+                    padding: 10px;
+                    border: 1px solid darkblue;
+                    .acf-listing-grid-item-image{
+                        max-width: 100%;
+                        height: auto;
+                    }
+                    .acf-listing-grid-item-title{
+                        font-size: 1.2em;
+                        font-weight: bold;
+                        margin: 5px 0;
+                    }
+                    .acf-listing-grid-item-excerpt{
+                        font-size: 0.9em;
+                        color: darkblue;
+                    }
+                }
+            }
+
+            }
 
         }
         .acf-listing-pagination{
