@@ -129,7 +129,7 @@ $blockID = 'listing-' . $block['id'];
         </div>
 
         <div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
-            here goes the pagination
+            Here goes the pagination
         </div>
 
     </div>
