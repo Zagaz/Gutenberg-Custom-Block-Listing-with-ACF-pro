@@ -40,8 +40,28 @@ if( !empty($block['align']) ) {
 
 ?>
 <div class="<?php echo esc_attr($block_name .'-wrapper' ); ?><?php echo esc_attr($is_editor); ?>" style="<?php echo esc_attr($style); ?>">
+<?php // This will display the event listing block content ?>
+<?php
+// Query for events
+$events = new WP_Query(array(
+    'post_type' => 'event',
+    'posts_per_page' => -1,
+));
 
-Hello Listing
-  
+// Check if there are any events to display
+if ($events->have_posts()) {
+    echo '<ul class="event-list">';
+    while ($events->have_posts()) {
+        $events->the_post();
+        echo '<li>' . get_the_title() . '</li>';
+    }
+    echo '</ul>';
+} else {
+    echo '<p>No events found.</p>';
+}
+
+// Reset post data
+wp_reset_postdata();
+?>
 </div>
 
