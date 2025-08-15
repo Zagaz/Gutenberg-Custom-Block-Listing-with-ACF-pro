@@ -2,12 +2,12 @@
  * Editor Wrapper
  */
 @use '../abstract/mixins' as mix;
-@use '../components/hero-block';
+@use '../components/listing-block';
 
 .wp-block-acf-acf-hero {
     .acf-block-body {
         .acf-block-preview {
-            .acf-hero-wrapper {
+            .acf-listing {               
                 @include mix.editor();
             }
         }

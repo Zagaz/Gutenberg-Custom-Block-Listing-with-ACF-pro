@@ -21,7 +21,7 @@
 /**
  * Hero Block Component
  */
-.hero-block {
+.acf-listing {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -33,21 +33,21 @@
   padding: 30px;
 }
 @media (min-width: 450px) {
-  .hero-block {
+  .acf-listing {
     height: 50vh;
   }
 }
 @media (min-width: 768px) {
-  .hero-block {
+  .acf-listing {
     height: 70vh;
   }
 }
 @media (min-width: 1024px) {
-  .hero-block {
+  .acf-listing {
     height: 80vh;
   }
 }
-.hero-block .hero-content {
+.acf-listing .hero-content {
   max-width: 800px;
   width: 100%;
   display: flex;
@@ -55,21 +55,21 @@
   align-items: center;
   flex-wrap: nowrap;
 }
-.hero-block .hero-content .acf-hero-title {
+.acf-listing .hero-content .acf-hero-title {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 20px;
   /* Using CSS custom properties set in PHP */
   color: var(--text-color, #000);
 }
-.hero-block .hero-content .acf-hero-subtitle {
+.acf-listing .hero-content .acf-hero-subtitle {
   font-size: 2rem;
   font-weight: normal;
   margin-bottom: 20px;
   /* Using CSS custom properties set in PHP */
   color: var(--text-color, #000);
 }
-.hero-block .hero-content .acf-hero-description {
+.acf-listing .hero-content .acf-hero-description {
   text-align: center;
   font-size: 1rem;
   font-weight: normal;
@@ -77,7 +77,7 @@
   /* Using CSS custom properties set in PHP */
   color: var(--text-color, #000);
 }
-.hero-block .hero-content .acf-hero-cta-button {
+.acf-listing .hero-content .acf-hero-cta-button {
   padding-top: 10px;
   padding-right: 20px;
   padding-bottom: 10px;
@@ -195,23 +195,25 @@
 /**
  * Frontend Wrapper
  */
-.acf-hero-wrapper {
+.acf-listing-wrapper {
   width: 100% !important;
   height: -moz-max-content;
   height: max-content;
   display: flex;
   justify-content: center;
+  background-color: red;
 }
 
 /**
  * Editor Wrapper
  */
-.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-hero-wrapper {
+.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing {
   width: 100% !important;
   height: -moz-max-content;
   height: max-content;
   display: flex;
   justify-content: center;
+  background-color: red;
 }
 
 /**

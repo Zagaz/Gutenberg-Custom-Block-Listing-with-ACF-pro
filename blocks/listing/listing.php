@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Hero Block Template
  *
@@ -7,12 +8,20 @@
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  */
-
+?>
+<pre>
+    <?php
+    // var_dump($block); // Debugging line to check block attributes
+    // var_dump($is_preview); // Debugging line to check if in preview mode
+    ?>
+</pre>
+<?php
 // Create id attribute allowing for custom "anchor" value
 $id = 'listing-' . $block['id'];
-if( !empty($block['anchor']) ) {
+if (!empty($block['anchor'])) {
     $id = $block['anchor'];
 }
+
 
 
 // Block
@@ -26,42 +35,53 @@ $block_align = $block_name . '-text-align-' . $block_align_text;
 $classes = 'hero-block';
 
 // Add editor and preview classes if in editor
-$is_preview = isset($block['is_preview']) && $block['is_preview'];
-$is_editor = $is_preview ? ' is-editor' : '';
-$preview_class = $is_preview ? ' is-preview' : '';
 
-if( !empty($block['className']) ) {
+if (!empty($block['className'])) {
     $classes .= ' ' . $block['className'];
 }
-if( !empty($block['align']) ) {
+if (!empty($block['align'])) {
     $classes .= ' align' . $block['align'];
 }
 
 
 ?>
-<div class="<?php echo esc_attr($block_name .'-wrapper' ); ?><?php echo esc_attr($is_editor); ?>" style="<?php echo esc_attr($style); ?>">
-<?php // This will display the event listing block content ?>
 <?php
-// Query for events
-$events = new WP_Query(array(
-    'post_type' => 'event',
-    'posts_per_page' => -1,
-));
+// Checks if in preview mode (Backend)
+$check_id_preview = $is_preview ? ' is-preview' : '';
+$class_attr = $block_name . '-wrapper' . $check_id_preview ;
 
-// Check if there are any events to display
-if ($events->have_posts()) {
-    echo '<ul class="event-list">';
-    while ($events->have_posts()) {
-        $events->the_post();
-        echo '<li>' . get_the_title() . '</li>';
-    }
-    echo '</ul>';
-} else {
-    echo '<p>No events found.</p>';
-}
-
-// Reset post data
-wp_reset_postdata();
 ?>
-</div>
+<?php
+$blockClass = 'acf-listing';
+$blockID = 'listing-' . $block['id'];
 
+?>
+<div class="<?php echo esc_attr($blockClass); ?>" id="<?php echo esc_attr($blockID); ?>">
+
+    <div class="<?php echo esc_attr($class_attr); ?>" style="<?php echo esc_attr($style); ?>">
+    </div>
+    <?php // This will display the event listing block content
+    ?>
+    <?php
+    // Query for events
+    $events = new WP_Query(array(
+        'post_type' => 'event',
+        'posts_per_page' => -1,
+    ));
+
+    // Check if there are any events to display
+    if ($events->have_posts()) {
+        echo '<ul class="event-list">';
+        while ($events->have_posts()) {
+            $events->the_post();
+            echo '<li>' . get_the_title() . '</li>';
+        }
+        echo '</ul>';
+    } else {
+        echo '<p>No events found.</p>';
+    }
+
+    // Reset post data
+    wp_reset_postdata();
+    ?>
+</div>
