@@ -93,11 +93,12 @@ $blockID = 'listing-' . $block['id'];
 
         <div class="<?php echo esc_attr($blockClass . '-inputs'); ?>">
 
-        <?php //  the ajax must use the <select> element from this select ?>
+            <?php //  the ajax must use the <select> element from this select 
+            ?>
 
             <!-- The AJAX will use this <select> to filter the cards below -->
             <select class="<?php echo esc_attr($blockClass . '-selector acf-listing-selector'); ?>">
-                <option value="">Select an option</option>
+                <option value="" >Select an option</option>
                 <?php
                 // here I need the list of the terms related to 'events' post type.
                 $post_type_taxonomies = get_object_taxonomies('event', 'names');
@@ -118,28 +119,16 @@ $blockID = 'listing-' . $block['id'];
             <input type="text" class="<?php echo esc_attr($blockClass . '-search'); ?>" placeholder="Search..." />
 
         </div>
-        <?php // The fetched data from ajax must inpact in this grid ?>
+        <?php // The fetched data from ajax must inpact in this grid 
+        ?>
         <div class="<?php echo esc_attr($blockClass . '-grid'); ?>">
             <div class="<?php echo esc_attr($blockClass . '-grid-inner'); ?>">
                 <?php
                 if ($events->have_posts()) {
                     while ($events->have_posts()) {
                         $events->the_post();
-                ?>
-                        <div class="<?php echo esc_attr($blockClass . '-grid-item'); ?>">
-                            <?php if (has_post_thumbnail()) : ?>
-                                <img src="<?php echo esc_url(get_the_post_thumbnail_url()); ?>" alt="<?php the_title(); ?>" class="<?php echo esc_attr($blockClass . '-grid-item-image'); ?>" />
-                            <?php else : ?>
-                                <!-- Use lorem picsum tandom image image  -->
-                                 <?php $random_id = rand (1, 1000); ?>
-                                <img src="<?php echo esc_url('https://picsum.photos/480/360?random=' . $random_id); ?>" alt="<?php the_title(); ?>" class="<?php echo esc_attr($blockClass . '-grid-item-image'); ?>" />
-
-                            <?php endif; ?>
-
-                            <h2 class="<?php echo esc_attr($blockClass . '-grid-item-title'); ?>"><?php the_title(); ?></h2>
-                            <div class="<?php echo esc_attr($blockClass . '-grid-item-excerpt'); ?>"><?php the_excerpt(); ?></div>
-                        </div>
-                <?php
+                        // Use acf-listing shared card template for rendering
+                        include dirname(dirname(__FILE__)) . '/includes/acf-listing-card.php';
                     }
                 } else {
                     echo '<p>No events found.</p>';

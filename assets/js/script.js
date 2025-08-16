@@ -4,26 +4,18 @@
 // ===============================
 // This code listens for changes on the <select> and updates the cards grid via AJAX, without reloading the page.
 jQuery(document).ready(function($) {
-    // Listen for changes on the taxonomy <select>
-    $(document).on('change', '.acf-listing-selector', function() {
-        var term = $(this).val(); // Get selected term slug
-        var $block = $(this).closest('.acf-listing');
+    function fetchCards(term, $block) {
         var $grid = $block.find('.acf-listing-grid-inner');
-
-        // Show loading state 
         $grid.html('<div class="acf-listing-loading">Loading...</div>');
-
-        // Send AJAX request to server
         $.ajax({
-            url: (typeof acfListingAjax !== 'undefined') ? acfListingAjax.ajax_url : '', // AJAX URL from wp_localize_script
+            url: (typeof acfListingAjax !== 'undefined') ? acfListingAjax.ajax_url : '',
             type: 'POST',
             dataType: 'json',
             data: {
-                action: 'acf_listing_filter', // PHP handler
-                term: term // Selected term slug
+                action: 'acf_listing_filter',
+                term: term
             },
             success: function(response) {
-                // On success, replace the grid HTML with the new cards
                 if (response.success && response.data && response.data.html) {
                     $grid.html(response.data.html);
                 } else {
@@ -31,10 +23,22 @@ jQuery(document).ready(function($) {
                 }
             },
             error: function() {
-                // On error, show a message
                 $grid.html('<p>Error loading events.</p>');
             }
         });
+    }
+
+    // On select change
+    $(document).on('change', '.acf-listing-selector', function(e) {
+        var term = $(this).val();
+        var $block = $(this).closest('.acf-listing');
+        fetchCards(term, $block);
+    });
+
+    // On page load, trigger AJAX to render all cards (empty value)
+    $('.acf-listing-selector').each(function() {
+        var $block = $(this).closest('.acf-listing');
+        fetchCards('', $block);
     });
 });
 

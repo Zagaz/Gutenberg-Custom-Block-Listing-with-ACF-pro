@@ -1,9 +1,5 @@
 <?php
-/**
- * Card template for ACF Listing (shared by block and AJAX)
- * Usage: include this file inside the loop to render a single card.
- * Variables required: $blockClass (string)
- */
+// This is the vcards 
 ?>
 <div class="<?php echo esc_attr($blockClass . '-grid-item'); ?>">
     <?php if (has_post_thumbnail()) : ?>
