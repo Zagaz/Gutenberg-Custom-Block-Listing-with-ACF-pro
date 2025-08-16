@@ -11,13 +11,13 @@
 ?>
 <pre>
     <?php
-// var_dump the acf post type
+    // var_dump the acf post type
 
 
     ?>
 </pre>
 
-<?php 
+<?php
 
 $post_type = 'event'; // Custom post type slug
 $posts_per_page = -1; // Number of posts to display, -1 for all
@@ -75,41 +75,41 @@ $blockID = 'listing-' . $block['id'];
 
 ?>
 <div class="<?php echo esc_attr($blockClass . ' ' . $check_id_preview);  ?>" id="<?php echo esc_attr($blockID); ?>">
-    
+
     <div class="<?php echo esc_attr($blockClass . '-wrapper'); ?>" style="<?php echo esc_attr($style); ?>">
-        The root
-        <div class="<?php echo esc_attr($blockClass . '-type'); ?>"> 
+
+        <div class="<?php echo esc_attr($blockClass . '-type'); ?>">
             <?php
-            if (!$post_type_name || !empty($post_type_name)) :?>
-             <h1 class="<?php echo esc_attr($blockClass . '-type-title'); ?>"> 
-                List of:
-                <?php
-                $post_type_name = ucfirst($post_type_name);
-                echo esc_html( $post_type_name );
-                 ?>
-            </h1>
-            <?php endif; ?>           
+            if (!$post_type_name || !empty($post_type_name)) : ?>
+                <h1 class="<?php echo esc_attr($blockClass . '-type-title'); ?>">
+                    List of:
+                    <?php
+                    $post_type_name = ucfirst($post_type_name);
+                    echo esc_html($post_type_name);
+                    ?>
+                </h1>
+            <?php endif; ?>
         </div>
 
         <div class="<?php echo esc_attr($blockClass . '-inputs'); ?>">
 
             <select class="<?php echo esc_attr($blockClass . '-selector'); ?>">
                 <option value="">Select an option</option>
-               <?php
-               // here I need the list of the terms related to 'events' post type.
-               $post_type_taxonomies = get_object_taxonomies('event', 'names');
-               foreach ($post_type_taxonomies as $taxonomy) {
-                   $terms = get_terms(array(
-                       'taxonomy' => $taxonomy,
-                       'hide_empty' => true,
-                   ));
-                   if (!empty($terms) && !is_wp_error($terms)) {
-                       foreach ($terms as $term) {
-                           echo '<option value="' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</option>';
-                       }
-                   }
-               }
-               ?>
+                <?php
+                // here I need the list of the terms related to 'events' post type.
+                $post_type_taxonomies = get_object_taxonomies('event', 'names');
+                foreach ($post_type_taxonomies as $taxonomy) {
+                    $terms = get_terms(array(
+                        'taxonomy' => $taxonomy,
+                        'hide_empty' => true,
+                    ));
+                    if (!empty($terms) && !is_wp_error($terms)) {
+                        foreach ($terms as $term) {
+                            echo '<option value="' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</option>';
+                        }
+                    }
+                }
+                ?>
             </select>
 
             <input type="text" class="<?php echo esc_attr($blockClass . '-search'); ?>" placeholder="Search..." />
@@ -121,14 +121,14 @@ $blockID = 'listing-' . $block['id'];
                 if ($events->have_posts()) {
                     while ($events->have_posts()) {
                         $events->the_post();
-                        ?>
+                ?>
                         <div class="<?php echo esc_attr($blockClass . '-grid-item'); ?>">
                             <img src="<?php echo esc_url(get_the_post_thumbnail_url()); ?>" alt="<?php the_title(); ?>" class="<?php echo esc_attr($blockClass . '-grid-item-image'); ?>" />
 
                             <h2 class="<?php echo esc_attr($blockClass . '-grid-item-title'); ?>"><?php the_title(); ?></h2>
                             <div class="<?php echo esc_attr($blockClass . '-grid-item-excerpt'); ?>"><?php the_excerpt(); ?></div>
                         </div>
-                        <?php
+                <?php
                     }
                 } else {
                     echo '<p>No events found.</p>';
@@ -144,14 +144,14 @@ $blockID = 'listing-' . $block['id'];
     </div>
 
 
-          
-        </div>
 
-        <div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
-            Here goes the pagination
-        </div>
+</div>
 
-    </div>
+<div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
+    Here goes the pagination
+</div>
+
+</div>
 
 
 </div>
