@@ -45,7 +45,7 @@ require_once __DIR__ . '/includes/acf-listing-ajax.php';
 // Enqueue frontend JS and pass AJAX URL
 add_action('wp_enqueue_scripts', function() {
     $plugin_url = plugin_dir_url(__FILE__);
-    wp_enqueue_script('acf-listing-ajax', $plugin_url . 'assets/js/script.js', array('jquery'), null, true);
+    wp_enqueue_script('acf-listing-ajax', $plugin_url . 'assets/js/ajax-fetch-posts.js', array('jquery'), null, true);
     wp_localize_script('acf-listing-ajax', 'acfListingAjax', array(
         'ajax_url' => admin_url('admin-ajax.php'),
     ));

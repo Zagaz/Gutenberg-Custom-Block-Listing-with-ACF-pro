@@ -24,6 +24,7 @@ function acf_hero_init()
             'keywords'          => array('acf','listing', 'quote', 'posts'),
             'enqueue_style'     => $plugin_url . 'assets/css/style.css',
             'enqueue_script'    => $plugin_url . 'assets/js/script.js',
+
             'supports'          => array(
                 'anchor' => true,
                 'customClassName' => true,
