@@ -41,15 +41,23 @@ function acf_listing_filter_callback()
     if ($events->have_posts()) {
         while ($events->have_posts()) {
             $events->the_post();
-            // Use shared card template for rendering
-            include dirname(__FILE__) . '/acf-listing-card.php';
+            // get the taxonomy terms
+            $taxonomies = get_the_terms(get_the_ID(), 'events');
+            $term_name = [];
+            foreach ($taxonomies as $taxonomy) {
+                $term_name[] = $taxonomy->name;
+            }
+            
+
+            // Get render the cards
+            require dirname(__FILE__) . '/acf-listing-card.php';
         }
     } else {
         echo '<p>No events found.</p>';
     }
 
 
-    
+
     wp_reset_postdata();
     $html = ob_get_clean();
 

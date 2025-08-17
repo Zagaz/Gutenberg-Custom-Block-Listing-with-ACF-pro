@@ -25,6 +25,15 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
+// Enqueue FontAwesome CDN globally
+add_action('wp_enqueue_scripts', function() {
+    wp_enqueue_style(
+        'fontawesome-cdn',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css',
+        array(),
+        '6.4.2'
+    );
+});
 
 // Encapsulated ACF Hero block registration
 require_once __DIR__ . '/includes/acf_listing_init.php';
@@ -42,6 +51,8 @@ require_once __DIR__ . '/includes/acf-cheker.php';
 // Include AJAX handler for event filtering
 require_once __DIR__ . '/includes/acf-listing-ajax.php';
 
+
+
 // Enqueue frontend JS and pass AJAX URL
 add_action('wp_enqueue_scripts', function() {
     $plugin_url = plugin_dir_url(__FILE__);
@@ -49,5 +60,15 @@ add_action('wp_enqueue_scripts', function() {
     wp_localize_script('acf-listing-ajax', 'acfListingAjax', array(
         'ajax_url' => admin_url('admin-ajax.php'),
     ));
+});
+
+// fontawesome cdn
+add_action('wp_enqueue_scripts', function() {
+    wp_enqueue_style(
+        'fontawesome-cdn',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css',
+        array(),
+        '6.4.2'
+    );
 });
 
