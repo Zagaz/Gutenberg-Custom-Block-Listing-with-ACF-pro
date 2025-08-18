@@ -91,6 +91,7 @@ $blockID = 'listing-' . $block['id'];
             <?php endif; ?>
         </div>
 
+        <?php // This is the INPUTS section  ?>        
         <div class="<?php echo esc_attr($blockClass . '-inputs'); ?>">
 
             <?php //  the ajax must use the <select> element from this select 
@@ -98,7 +99,7 @@ $blockID = 'listing-' . $block['id'];
 
             <!-- The AJAX will use this <select> to filter the cards below -->
             <select class="<?php echo esc_attr($blockClass . '-selector acf-listing-selector'); ?>">
-                <option value="" >Select an option</option>
+                <option value="">Select an option</option>
                 <?php
                 // here I need the list of the terms related to 'events' post type.
                 $post_type_taxonomies = get_object_taxonomies('event', 'names');
@@ -115,12 +116,13 @@ $blockID = 'listing-' . $block['id'];
                 }
                 ?>
             </select>
-
             <input type="text" class="<?php echo esc_attr($blockClass . '-search'); ?>" placeholder="Search..." />
-
         </div>
-        <?php // The fetched data from ajax must inpact in this grid 
+
+
+        <?php // The fetched data from ajax must inpact in this grid  
         ?>
+
         <div class="<?php echo esc_attr($blockClass . '-grid'); ?>">
             <div class="<?php echo esc_attr($blockClass . '-grid-inner'); ?>">
                 <?php
@@ -143,16 +145,6 @@ $blockID = 'listing-' . $block['id'];
 
     </div>
 </div>
-
-<div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
-    Here goes the pagination
-</div>
-
-</div>
-
-
-</div>
 <?php
 wp_reset_postdata();
 ?>
-</div>
