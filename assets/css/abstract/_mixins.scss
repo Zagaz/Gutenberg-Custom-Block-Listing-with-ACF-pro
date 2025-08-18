@@ -34,6 +34,14 @@
             justify-content: space-between;
             gap: 10px;
             background-color: chartreuse;
+            .acf-listing-number-items-wrapper{
+                display: flex;
+                flex-direction: row;
+            }
+            .acf-listing-order-wrapper {
+                display: flex;
+                flex-direction: row;
+            }
         }
 
         .acf-listing-grid {

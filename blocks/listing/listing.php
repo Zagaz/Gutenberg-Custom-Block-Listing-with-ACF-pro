@@ -118,9 +118,9 @@ $blockID = 'listing-' . $block['id'];
 
             <?php // The Number of Items 
             ?>
-            <div class="<?php echo esc_attr($blockClass . '-number-items'); ?>">
+            <div class="<?php echo esc_attr($blockClass . '-number-items-wrapper'); ?>">
                 <p>Number of Items</p>
-                <select class="<?php echo esc_attr($blockClass . '-selector'); ?>">
+                <select class="<?php echo esc_attr($blockClass . '-selector' .' '.$blockClass . '-number-items'); ?>">
                     <option value="4">4</option>
                     <option value="8">8</option>
                     <option value="12">12</option>
@@ -131,10 +131,10 @@ $blockID = 'listing-' . $block['id'];
 
             <?php  // Order: Older or Newer
             ?>
-            <div class="<?php echo esc_attr($blockClass . '-order'); ?>">
-                <p>Order: Older or Newer</p>
+            <div class="<?php echo esc_attr($blockClass . '-order-wrapper'); ?>">
+                <p>Order:</p>
 
-                <select class="<?php echo esc_attr($blockClass . '-selector'); ?>">
+                <select class="<?php echo esc_attr($blockClass . '-selector' .' '.$blockClass . '-order'); ?>">
                     <option value="newer">Newest first</option>
                     <option value="older">Oldest first</option>
                 </select>

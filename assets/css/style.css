@@ -184,6 +184,14 @@
   gap: 10px;
   background-color: chartreuse;
 }
+.acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-number-items-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-order-wrapper {
+  display: flex;
+  flex-direction: row;
+}
 .acf-listing .acf-listing-wrapper .acf-listing-grid {
   background-color: violet;
   padding: 10px;
@@ -275,6 +283,14 @@
   justify-content: space-between;
   gap: 10px;
   background-color: chartreuse;
+}
+.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-number-items-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-order-wrapper {
+  display: flex;
+  flex-direction: row;
 }
 .wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-grid {
   background-color: violet;
