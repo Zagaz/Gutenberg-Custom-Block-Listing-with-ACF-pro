@@ -1,0 +1,42 @@
+/**
+ * Hero Block Component
+ */
+@use '../abstract/variables' as var;
+@use '../abstract/mixins' as mixins;
+
+@mixin cta($pt, $pr, $pb, $pl, $br, $decoration) {
+    padding-top: $pt;
+    padding-right: $pr;
+    padding-bottom: $pb;
+    padding-left: $pl;
+    border-radius: $br;
+    text-decoration: none;
+
+}
+
+.acf-listing {
+    // background-color: var.$color-bg;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    height: 100vw; 
+    padding: 30px;
+    background-color: red;;
+    
+    @media(min-width: 450px) {
+        height: 50vh;
+    }
+    @media(min-width: 768px) {
+        height: 70vh;
+    }
+    @media(min-width: 1024px) {
+        height:80vh;
+
+    }
+
+    
+}

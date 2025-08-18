@@ -3,17 +3,111 @@
  */
 
 // Editor mixin for shared styling between frontend and editor
-@mixin editor {
+// .acf-listing is the root class
+@mixin acf-listing {
+    //This is the root acf-listing
     width: 100% !important;
-       height: max-content;
+    height: max-content;
     display: flex;
     justify-content: center;
-    // make a darker layer for text contrast
+    background-color: antiquewhite;
+
+    .acf-listing-wrapper {
+        max-width: 1600px;
+        width: 100%;
+        background-color: rgb(127, 130, 215);
+
+        .acf-listing-type {
+            background-color: rgb(43, 188, 135);
+            padding: 10px;
+
+            .acf-listing-type-title {
+                background-color: brown;
+            }
+        }
+
+        .acf-listing-inputs {
+            background-color: cyan;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+            background-color: chartreuse;
+        }
+
+        .acf-listing-grid {
+            background-color: violet;
+            padding: 10px;
+
+            .acf-listing-grid-inner {
+                display: grid;
+                gap: 10px;
+                grid-template-columns: repeat(1, 1fr);
+
+                @media(min-width:570px) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                @media (min-width: 768px) {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                @media (min-width: 1024px) {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+
+                .acf-listing-grid-item {
+                    background-color: lightblue;
+                    padding: 10px;
+                    border: 1px solid darkblue;
+
+                    .acf-listing-grid-item-image {
+                        // The aspect ratio 16/9
+                        max-width: 100%;
+                        object-fit: cover;
+                        width: 100%;
+                        height: auto;
+                        aspect-ratio: 16 / 9;
+                    }
+
+                    .acf-listing-grid-item-tags {
+                        font-size: .5rem;
+                        display: flex;
+                        flex-wrap: nowrap;
+                        align-items: center;
+                        justify-content: flex-end;
+                        gap: 5px;
+                        margin-bottom: 8px;
+                        
+                    }
+
+                    .acf-listing-grid-item-title {
+                        font-size: 1.2em;
+                        font-weight: bold;
+                        margin: 5px 0;
+                    }
+
+                    .acf-listing-grid-item-excerpt {
+                        font-size: 0.9em;
+                        color: darkblue;
+                    }
+                }
+            }
+        }
+
+        .acf-listing-pagination {
+            background-color: cornsilk;
+            padding: 10px;
+        }
+    }
 
 
- 
-  
 }
+
+
+
+
 
 @mixin content($size, $weight, $marginButton) {
     font-size: $size;
