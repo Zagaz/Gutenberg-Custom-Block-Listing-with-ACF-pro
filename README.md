@@ -38,7 +38,7 @@ This project provides a custom **WordPress** Listing block for creating a dynami
 
 ## Testing
 
-- You will need to populate your WP install with some data. On the Admin Panel, you will the on the left the "Events" option and click on the "Add new Even". Fill the:
+- You will need to populate your WP install with some data. On the Admin Panel, you will the on the left the "Events" option and click on the "Add new Even" and fill the fields:
    - Add Title
    - Add a Content.
    - Choose one of the tags: on the right side block settings (Concerts,conferences or Workshop).
