@@ -10,34 +10,64 @@
     height: max-content;
     display: flex;
     justify-content: center;
-    background-color: antiquewhite;
+
 
     .acf-listing-wrapper {
         max-width: 1600px;
         width: 100%;
-        background-color: rgb(127, 130, 215);
 
         .acf-listing-type {
-            background-color: rgb(43, 188, 135);
+
             padding: 10px;
 
-            .acf-listing-type-title {
-                background-color: brown;
-            }
+
         }
 
         .acf-listing-inputs {
-            background-color: cyan;
+
             padding: 10px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             gap: 10px;
-            background-color: chartreuse;
+            background-color: rgb(236, 236, 236);
+
+            .acf-listing-number-items-wrapper,
+            .acf-listing-order-wrapper {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .acf-listing-selector {
+                border-radius: 5px;
+                padding: 5px 10px;
+                background-color: white;
+                border: 0px;
+                margin-left: 5px;
+
+                &:hover {
+                    background-color: rgb(86, 86, 153);
+                    color: white;
+                }
+            }
+
+            .acf-listing-text {
+                border-radius: 5px;
+                padding: 5px 10px;
+                background-color: white;
+                border: 0px;
+                margin-left: 5px;
+
+                &:hover {
+                    background-color: rgb(86, 86, 153);
+                    color: white;
+                }
+            }
+
         }
 
         .acf-listing-grid {
-            background-color: violet;
+           
             padding: 10px;
 
             .acf-listing-grid-inner {
@@ -58,9 +88,11 @@
                 }
 
                 .acf-listing-grid-item {
-                    background-color: lightblue;
-                    padding: 10px;
-                    border: 1px solid darkblue;
+                  
+                    padding: 20px;
+                    // shadow
+                    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+
 
                     .acf-listing-grid-item-image {
                         // The aspect ratio 16/9
@@ -72,14 +104,14 @@
                     }
 
                     .acf-listing-grid-item-tags {
-                        font-size: .5rem;
+                        font-size: 0.8rem;
                         display: flex;
                         flex-wrap: nowrap;
                         align-items: center;
                         justify-content: flex-end;
                         gap: 5px;
                         margin-bottom: 8px;
-                        
+
                     }
 
                     .acf-listing-grid-item-title {
@@ -91,18 +123,113 @@
                     .acf-listing-grid-item-excerpt {
                         font-size: 0.9em;
                         color: darkblue;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 4;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        
                     }
                 }
             }
         }
 
         .acf-listing-pagination {
-            background-color: cornsilk;
-            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2.5rem 0 0 0;
+            padding: 0;
+            background: none;
+            box-shadow: none;
+
+            .page-numbers {
+                display: flex;
+                gap: 0.5rem;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                background: none;
+                border: none;
+            }
+
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+            }
+
+            a.page-numbers,
+            span.page-numbers {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2.2rem;
+                height: 2.2rem;
+                border-radius: 50%;
+                font-size: 1.1rem;
+                color: #222;
+                background: #fff;
+                border: none;
+                transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+                cursor: pointer;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+                font-weight: 500;
+                outline: none;
+            }
+
+            a.page-numbers:hover {
+                background: #f3f3f3;
+                color: #111;
+                text-decoration: none;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            }
+
+            .current.page-numbers {
+                background: #222;
+                color: #fff;
+                font-weight: 700;
+                pointer-events: none;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            }
+
+            .dots.page-numbers {
+                background: transparent;
+                color: #777676;
+                box-shadow: none;
+                cursor: default;
+                font-size: 1.2rem;
+                width: 2.2rem;
+                height: 2.2rem;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                font-weight: 400;
+            }
+
+            .prev.page-numbers,
+            .next.page-numbers {
+                font-size: 1.3rem;
+                background: transparent;
+                color: #888;
+                box-shadow: none;
+
+                &:hover {
+                    color: #222;
+                    background: #f3f3f3;
+                }
+
+                width: 2.2rem;
+                height: 2.2rem;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+            }
         }
     }
-
-
 }
 
 

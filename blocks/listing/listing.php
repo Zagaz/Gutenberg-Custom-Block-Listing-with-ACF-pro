@@ -9,13 +9,7 @@
  * @param int $post_id The post ID the block is rendering content against.
  */
 ?>
-<pre>
-    <?php
-    // var_dump the acf post type
 
-
-    ?>
-</pre>
 
 <?php
 
@@ -29,8 +23,6 @@ $events = new WP_Query(array(
 ));
 
 $post_type_taxonomies = get_object_taxonomies($post_type, 'names');
-
-
 $post_type_name = $events->query['post_type'];
 
 ?>
@@ -41,8 +33,6 @@ $id = 'listing-' . $block['id'];
 if (!empty($block['anchor'])) {
     $id = $block['anchor'];
 }
-
-
 
 // Block
 $block_name = 'acf-listing'; // Block name (should be lowercase and without spaces)
@@ -91,6 +81,8 @@ $blockID = 'listing-' . $block['id'];
             <?php endif; ?>
         </div>
 
+        <?php // This is the INPUTS section  
+        ?>
         <div class="<?php echo esc_attr($blockClass . '-inputs'); ?>">
 
             <?php //  the ajax must use the <select> element from this select 
@@ -98,7 +90,7 @@ $blockID = 'listing-' . $block['id'];
 
             <!-- The AJAX will use this <select> to filter the cards below -->
             <select class="<?php echo esc_attr($blockClass . '-selector acf-listing-selector'); ?>">
-                <option value="" >Select an option</option>
+                <option value="">Select an option</option>
                 <?php
                 // here I need the list of the terms related to 'events' post type.
                 $post_type_taxonomies = get_object_taxonomies('event', 'names');
@@ -116,10 +108,35 @@ $blockID = 'listing-' . $block['id'];
                 ?>
             </select>
 
-            <input type="text" class="<?php echo esc_attr($blockClass . '-search'); ?>" placeholder="Search..." />
+            <?php // The Number of Items 
+            ?>
+            <div class="<?php echo esc_attr($blockClass . '-number-items-wrapper'); ?>">
+                <p>Number of Items</p>
+                <select class="<?php echo esc_attr($blockClass . '-selector' . ' ' . $blockClass . '-number-items'); ?>">
+                    <option value="4">4</option>
+                    <option value="8">8</option>
+                    <option value="12">12</option>
+                    <option value="16">16</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
 
+            <?php  // Order: Older or Newer
+            ?>
+            <div class="<?php echo esc_attr($blockClass . '-order-wrapper'); ?>">
+                <p>Order:</p>
+                <select class="<?php echo esc_attr($blockClass . '-selector' . ' ' . $blockClass . '-order'); ?>">
+                    <option value="newer">Newest first</option>
+                    <option value="older">Oldest first</option>
+                </select>
+            </div>
+
+            <?php // The Search 
+            ?>
+            <input type="text" class="<?php echo esc_attr($blockClass . '-search' . ' ' . $blockClass . '-text'); ?>" placeholder="Search..." />
         </div>
-        <?php // The fetched data from ajax must inpact in this grid 
+        
+        <?php // THE GRID -  The fetch data from ajax inpacts in this grid  
         ?>
         <div class="<?php echo esc_attr($blockClass . '-grid'); ?>">
             <div class="<?php echo esc_attr($blockClass . '-grid-inner'); ?>">
@@ -135,24 +152,15 @@ $blockID = 'listing-' . $block['id'];
                 }
                 ?>
             </div>
+            <?php // Pagination buttons 
+            ?>
+            <div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
+                <?php  // Pagination goes here 
+                ?>
+            </div>
         </div>
-
-        <div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
-            Here goes the pagination
-        </div>
-
     </div>
-</div>
-
-<div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
-    Here goes the pagination
-</div>
-
-</div>
-
-
 </div>
 <?php
 wp_reset_postdata();
 ?>
-</div>

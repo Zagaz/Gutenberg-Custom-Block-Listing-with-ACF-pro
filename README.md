@@ -2,25 +2,8 @@
 # Gutenberg Custom Block Listing with ACF pro
  ## Description
 
-This project provides a custom **WordPress** block for creating a dynamic listing section using **Advanced Custom Fields (ACF) Pro**. 
+This project provides a custom **WordPress** Listing block for creating a dynamic listing section using **Advanced Custom Fields (ACF) Pro**. 
 
-// The next lines must be chaged.
-
-- **Color** – Set a solid background color.
-- **Image** – Select an image as the background.
-- **YouTube** – Enter a YouTube video URL and configure options:
-    - ▶️ Autoplay
-    - 🔁 Loop video
-    - 🔇 Mute video
-
-You can also customize the following content:
-
-- **Title**
-- **Subtitle**
-- **Description**
-- **Link Button** (customize background color, URL and text color)
-
-This allows you to build visually engaging hero sections tailored to your site's needs.
 ## Requirements
 
 - **WordPress** (latest version recommended)
@@ -55,9 +38,11 @@ This allows you to build visually engaging hero sections tailored to your site's
 
 ## Testing
 
-- Open your site in the frontend and/or the WordPress editor.
-- The hero section should display with your chosen background (YouTube video, image, or color).
-- For YouTube backgrounds, the video will cover the full width of the hero section and play according to your settings.
+- You will need to populate your WP install with some data. On the Admin Panel, you will the on the left the "Events" option and click on the "Add new Even". Fill the:
+   - Add Title
+   - Add a Content.
+   - Choose one of the tags: on the right side block settings (Concerts,conferences or Workshop).
+- Add this block (ACF Listing) wherever you want.(I strongly suggest to add it on the main page).
 
 ## Notes
 
