@@ -112,7 +112,7 @@ $blockID = 'listing-' . $block['id'];
             ?>
             <div class="<?php echo esc_attr($blockClass . '-number-items-wrapper'); ?>">
                 <p>Number of Items</p>
-                <select class="<?php echo esc_attr($blockClass . '-selector' .' '.$blockClass . '-number-items'); ?>">
+                <select class="<?php echo esc_attr($blockClass . '-selector' . ' ' . $blockClass . '-number-items'); ?>">
                     <option value="4">4</option>
                     <option value="8">8</option>
                     <option value="12">12</option>
@@ -125,7 +125,7 @@ $blockID = 'listing-' . $block['id'];
             ?>
             <div class="<?php echo esc_attr($blockClass . '-order-wrapper'); ?>">
                 <p>Order:</p>
-                <select class="<?php echo esc_attr($blockClass . '-selector' .' '.$blockClass . '-order'); ?>">
+                <select class="<?php echo esc_attr($blockClass . '-selector' . ' ' . $blockClass . '-order'); ?>">
                     <option value="newer">Newest first</option>
                     <option value="older">Oldest first</option>
                 </select>
@@ -133,10 +133,9 @@ $blockID = 'listing-' . $block['id'];
 
             <?php // The Search 
             ?>
-            <input type="text" class="<?php echo esc_attr($blockClass . '-search' .' '.$blockClass . '-text'); ?>" placeholder="Search..." />
+            <input type="text" class="<?php echo esc_attr($blockClass . '-search' . ' ' . $blockClass . '-text'); ?>" placeholder="Search..." />
         </div>
-
-
+        
         <?php // THE GRID -  The fetch data from ajax inpacts in this grid  
         ?>
         <div class="<?php echo esc_attr($blockClass . '-grid'); ?>">
@@ -153,17 +152,14 @@ $blockID = 'listing-' . $block['id'];
                 }
                 ?>
             </div>
-            <?php // Pagination buttons ?>
+            <?php // Pagination buttons 
+            ?>
             <div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
-                <?php  // Pagination goes here ?>
-           
+                <?php  // Pagination goes here 
+                ?>
             </div>
-            
-            
         </div>
-
     </div>
-    
 </div>
 <?php
 wp_reset_postdata();
