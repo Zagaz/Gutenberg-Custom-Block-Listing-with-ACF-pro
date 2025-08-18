@@ -23,9 +23,7 @@ function acf_hero_init()
             'icon'              => 'superhero-alt',
             'keywords'          => array('acf','listing', 'quote', 'posts'),
             'enqueue_style'     => $plugin_url . 'assets/css/style.css',
-            // 'enqueue_script'    => $plugin_url . 'assets/js/test.js',
-
-            'supports'          => array(
+                'supports'          => array(
                 'anchor' => true,
                 'customClassName' => true,
             ),
