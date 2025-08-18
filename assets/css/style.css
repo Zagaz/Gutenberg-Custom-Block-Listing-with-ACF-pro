@@ -184,13 +184,32 @@
   gap: 10px;
   background-color: chartreuse;
 }
-.acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-number-items-wrapper {
-  display: flex;
-  flex-direction: row;
-}
+.acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-number-items-wrapper,
 .acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-order-wrapper {
   display: flex;
   flex-direction: row;
+}
+.acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-selector {
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: white;
+  border: 0px;
+  margin-left: 5px;
+}
+.acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-selector:hover {
+  background-color: rgb(86, 86, 153);
+  color: white;
+}
+.acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-text {
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: white;
+  border: 0px;
+  margin-left: 5px;
+}
+.acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-text:hover {
+  background-color: rgb(86, 86, 153);
+  color: white;
 }
 .acf-listing .acf-listing-wrapper .acf-listing-grid {
   background-color: violet;
@@ -284,13 +303,32 @@
   gap: 10px;
   background-color: chartreuse;
 }
-.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-number-items-wrapper {
-  display: flex;
-  flex-direction: row;
-}
+.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-number-items-wrapper,
 .wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-order-wrapper {
   display: flex;
   flex-direction: row;
+}
+.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-selector {
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: white;
+  border: 0px;
+  margin-left: 5px;
+}
+.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-selector:hover {
+  background-color: rgb(86, 86, 153);
+  color: white;
+}
+.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-text {
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: white;
+  border: 0px;
+  margin-left: 5px;
+}
+.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-inputs .acf-listing-text:hover {
+  background-color: rgb(86, 86, 153);
+  color: white;
 }
 .wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-grid {
   background-color: violet;

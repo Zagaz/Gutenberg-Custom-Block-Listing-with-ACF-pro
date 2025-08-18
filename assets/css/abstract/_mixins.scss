@@ -34,14 +34,36 @@
             justify-content: space-between;
             gap: 10px;
             background-color: chartreuse;
-            .acf-listing-number-items-wrapper{
-                display: flex;
-                flex-direction: row;
-            }
+            .acf-listing-number-items-wrapper,
             .acf-listing-order-wrapper {
                 display: flex;
                 flex-direction: row;
             }
+            .acf-listing-selector{
+                border-radius: 5px;
+                padding: 5px 10px;
+                background-color: white;
+                border: 0px;
+                margin-left: 5px;
+
+                &:hover {
+                    background-color: rgb(86, 86, 153);
+                    color: white;
+                }
+            }
+            .acf-listing-text{
+                border-radius: 5px;
+                padding: 5px 10px;
+                background-color: white;
+                border: 0px;
+                margin-left: 5px;
+
+                &:hover {
+                    background-color: rgb(86, 86, 153);
+                    color: white;
+                }
+            }
+
         }
 
         .acf-listing-grid {
