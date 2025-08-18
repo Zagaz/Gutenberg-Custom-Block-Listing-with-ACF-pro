@@ -155,9 +155,11 @@ $blockID = 'listing-' . $block['id'];
             </div>
             <?php // Pagination buttons ?>
             <div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
-                <?php  // Pagination appears here ?>
+                <?php  // Pagination goes here ?>
            
             </div>
+            
+            
         </div>
 
     </div>
