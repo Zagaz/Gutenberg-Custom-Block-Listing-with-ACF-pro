@@ -11,10 +11,12 @@ if (!defined('ABSPATH')) {
 add_action('wp_ajax_acf_listing_filter', 'acf_listing_filter_callback');
 add_action('wp_ajax_nopriv_acf_listing_filter', 'acf_listing_filter_callback');
 
+
 function acf_listing_filter_callback()
 {
-    // Get the selected term slug from AJAX request
+    // Get the selected term slug and search string from AJAX request
     $term_slug = isset($_POST['term']) ? sanitize_text_field($_POST['term']) : '';
+    $search = isset($_POST['search']) ? sanitize_text_field($_POST['search']) : '';
 
     $args = array(
         'post_type' => 'event',
@@ -28,39 +30,45 @@ function acf_listing_filter_callback()
                 'taxonomy' => 'events',
                 'field'    => 'slug',
                 'terms'    => $term_slug,
+                // search words
+                'relation' => 'OR',
+                'meta_query' => array(
+                    array(
+                        'key'     => 'event_keywords',
+                        'value'   => $search,
+                        'compare' => 'LIKE'
+                    )
+                )
             ),
         );
+    }
+
+    // If a search string is provided, filter by title/content
+    if (!empty($search)) {
+        $args['s'] = $search;
     }
 
     $events = new WP_Query($args);
 
     ob_start();
-    // Once the option is selected, the AJAX will use the <select> element 
-    //to filter the cards below and update the grid item (Cards).
-    $blockClass = 'acf-listing';
+    
     if ($events->have_posts()) {
         while ($events->have_posts()) {
             $events->the_post();
-            // get the taxonomy terms
             $taxonomies = get_the_terms(get_the_ID(), 'events');
-            $term_name = [];
-            foreach ($taxonomies as $taxonomy) {
-                $term_name[] = $taxonomy->name;
+            $term_name = array();
+            if (!empty($taxonomies) && !is_wp_error($taxonomies)) {
+                foreach ($taxonomies as $taxonomy) {
+                    $term_name[] = $taxonomy->name;
+                }
             }
-            
-
-            // Get render the cards
             require dirname(__FILE__) . '/acf-listing-card.php';
         }
     } else {
         echo '<p>No events found.</p>';
     }
 
-
-
     wp_reset_postdata();
     $html = ob_get_clean();
-
-    // Return the HTML for the grid
     wp_send_json_success(['html' => $html]);
 }

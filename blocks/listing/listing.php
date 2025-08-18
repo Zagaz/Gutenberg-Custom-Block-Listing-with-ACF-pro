@@ -115,7 +115,8 @@ $blockID = 'listing-' . $block['id'];
                 }
                 ?>
             </select>
-            <input type="text" class="<?php echo esc_attr($blockClass . '-search'); ?>" placeholder="Search..." />
+            <?php // The SEARCH ?>
+            <input type="text" class="<?php echo esc_attr($blockClass . '-search acf-listing-search'); ?>" placeholder="Search..." />
         </div>
 
 
