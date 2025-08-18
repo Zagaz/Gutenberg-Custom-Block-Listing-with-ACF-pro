@@ -123,7 +123,6 @@ $blockID = 'listing-' . $block['id'];
                 <option value="12">12</option>
                 <option value="16">16</option>
                 <option value="20">20</option>
-                <option value="-1">All</option>
             </select>
             <?php  // Order: Older or Newer?>
             <select class="<?php echo esc_attr($blockClass . '-selector acf-listing-order'); ?>">

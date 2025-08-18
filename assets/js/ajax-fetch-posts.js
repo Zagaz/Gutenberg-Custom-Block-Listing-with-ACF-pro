@@ -34,7 +34,7 @@ jQuery(document).ready(function($) {
     function triggerFetch($block) {
         var term = $block.find('.acf-listing-selector').val() || '';
         var search = $block.find('.acf-listing-search').val() || '';
-        var number = $block.find('.acf-listing-number-items').val() || '-1';
+        var number = $block.find('.acf-listing-number-items').val() || '20';
         var order = $block.find('.acf-listing-order').val() || 'newer';
         fetchCards(term, search, number, order, $block);
     }
