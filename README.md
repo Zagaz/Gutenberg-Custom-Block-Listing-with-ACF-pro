@@ -2,25 +2,8 @@
 # Gutenberg Custom Block Listing with ACF pro
  ## Description
 
-This project provides a custom **WordPress** block for creating a dynamic listing section using **Advanced Custom Fields (ACF) Pro**. 
+This project provides a custom **WordPress** Listing block for creating a dynamic listing section using **Advanced Custom Fields (ACF) Pro**. 
 
-// The next lines must be chaged.
-
-- **Color** – Set a solid background color.
-- **Image** – Select an image as the background.
-- **YouTube** – Enter a YouTube video URL and configure options:
-    - ▶️ Autoplay
-    - 🔁 Loop video
-    - 🔇 Mute video
-
-You can also customize the following content:
-
-- **Title**
-- **Subtitle**
-- **Description**
-- **Link Button** (customize background color, URL and text color)
-
-This allows you to build visually engaging hero sections tailored to your site's needs.
 ## Requirements
 
 - **WordPress** (latest version recommended)
