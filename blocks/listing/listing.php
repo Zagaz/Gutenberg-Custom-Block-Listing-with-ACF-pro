@@ -29,8 +29,6 @@ $events = new WP_Query(array(
 ));
 
 $post_type_taxonomies = get_object_taxonomies($post_type, 'names');
-
-
 $post_type_name = $events->query['post_type'];
 
 ?>
@@ -91,7 +89,8 @@ $blockID = 'listing-' . $block['id'];
             <?php endif; ?>
         </div>
 
-        <?php // This is the INPUTS section  ?>        
+        <?php // This is the INPUTS section  
+        ?>
         <div class="<?php echo esc_attr($blockClass . '-inputs'); ?>">
 
             <?php //  the ajax must use the <select> element from this select 
@@ -120,9 +119,8 @@ $blockID = 'listing-' . $block['id'];
         </div>
 
 
-        <?php // The fetched data from ajax must inpact in this grid  
+        <?php // THE GRID -  The fetch data from ajax inpacts in this grid  
         ?>
-
         <div class="<?php echo esc_attr($blockClass . '-grid'); ?>">
             <div class="<?php echo esc_attr($blockClass . '-grid-inner'); ?>">
                 <?php
@@ -139,6 +137,8 @@ $blockID = 'listing-' . $block['id'];
             </div>
         </div>
 
+        <?php // THE PAGINATION  
+        ?>
         <div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
             Here goes the pagination
         </div>
