@@ -133,12 +133,10 @@ $blockID = 'listing-' . $block['id'];
             ?>
             <div class="<?php echo esc_attr($blockClass . '-order-wrapper'); ?>">
                 <p>Order:</p>
-
                 <select class="<?php echo esc_attr($blockClass . '-selector' .' '.$blockClass . '-order'); ?>">
                     <option value="newer">Newest first</option>
                     <option value="older">Oldest first</option>
                 </select>
-
             </div>
 
             <?php // The Search 
