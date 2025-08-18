@@ -18,15 +18,18 @@ function acf_listing_filter_callback()
     $term_slug = isset($_POST['term']) ? sanitize_text_field($_POST['term']) : '';
 
 
+
     $search = isset($_POST['search']) ? sanitize_text_field($_POST['search']) : '';
-    $number = isset($_POST['number']) ? intval($_POST['number']) : -1;
+    $number = isset($_POST['number']) ? intval($_POST['number']) : 8;
     $order = isset($_POST['order']) ? sanitize_text_field($_POST['order']) : 'newer';
+    $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
 
     $args = array(
         'post_type' => 'event',
         'posts_per_page' => $number,
         'orderby' => 'date',
         'order' => ($order === 'older' ? 'ASC' : 'DESC'),
+        'paged' => $paged,
     );
 
     // If a term is selected, filter by taxonomy term
@@ -54,10 +57,12 @@ function acf_listing_filter_callback()
         $args['s'] = $search;
     }
 
+
     $events = new WP_Query($args);
 
     ob_start();
-    $blockClass = 'acf-listing'; // Assuming this is the class used in the listing block
+    $blockClass = 'acf-listing';
+    echo '<div class="' . esc_attr($blockClass . '-grid-inner') . '">';
     if ($events->have_posts()) {
         while ($events->have_posts()) {
             $events->the_post();
@@ -73,6 +78,24 @@ function acf_listing_filter_callback()
     } else {
         echo '<p>No events found.</p>';
     }
+    echo '</div>';
+
+    // Pagination output
+    $big = 999999999;
+    $pagination_links = paginate_links(array(
+        'base' => '%_%',
+        'format' => '?paged=%#%',
+        'current' => max(1, $paged),
+        'total' => $events->max_num_pages,
+        'prev_text' => __('<'),
+        'next_text' => __('>'),
+        'type' => 'list',
+    ));
+    echo '<div class="' . esc_attr($blockClass . '-pagination') . '">';
+    if ($pagination_links) {
+        echo $pagination_links;
+    }
+    echo '</div>';
 
     wp_reset_postdata();
     $html = ob_get_clean();

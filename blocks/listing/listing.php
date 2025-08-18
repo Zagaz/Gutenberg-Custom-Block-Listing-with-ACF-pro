@@ -9,13 +9,7 @@
  * @param int $post_id The post ID the block is rendering content against.
  */
 ?>
-<pre>
-    <?php
-    // var_dump the acf post type
 
-
-    ?>
-</pre>
 
 <?php
 
@@ -162,12 +156,11 @@ $blockID = 'listing-' . $block['id'];
                 ?>
             </div>
         </div>
-
         <?php // THE PAGINATION  
         ?>
-        <div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
-            Here goes the pagination
-        </div>
+    <div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
+        Here goes the pagination
+    </div>
 
     </div>
 </div>
