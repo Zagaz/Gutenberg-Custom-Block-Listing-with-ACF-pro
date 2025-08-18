@@ -9,31 +9,24 @@
         <?php $random_id = rand(1, 1000); ?>
         <img src="<?php echo esc_url('https://picsum.photos/480/360?random=' . $random_id); ?>" alt="<?php the_title(); ?>" class="<?php echo esc_attr($blockClass . '-grid-item-image'); ?>" />
     <?php endif; ?>
-    
-
-    <?php
-    $term_tags =""; 
-if(count($term_name) > 1) {
-    $term_tags = '<i class="fa-solid fa-tags"></i>';
-} else {
-    $term_tags = '<i class="fa-solid fa-tag"></i>';
-}   
-echo $term_tags;
+    <?php 
+         $term_tags = "";
+        if (count($term_name) > 1) {
+            $term_tags = '<i class="fa-solid fa-tags"></i>';
+        } else {
+            $term_tags = '<i class="fa-solid fa-tag"></i>';
+        }
     ?>
-    <?php if (!empty($term_name)) : ?>
-        <h4 class="<?php echo esc_attr($blockClass . '-grid-item-term'); ?>">
-            <?php echo esc_html(implode(', ', $term_name)); ?>
-        </h4>   
-    <?php endif; ?>
 
-    
+    <div class="<?php echo esc_attr($blockClass . '-grid-item-tags'); ?>">
+        <?php if (!empty($term_name)) : ?>
+            <?php echo wp_kses_post($term_tags); ?>
+            <h4 class="<?php echo esc_attr($blockClass . '-grid-item-term'); ?>">
+                <?php echo esc_html(implode(', ', $term_name)); ?>
+            </h4>
+        <?php endif; ?>
 
-
-
-
-
-    
-
+    </div>
 
     <h2 class="<?php echo esc_attr($blockClass . '-grid-item-title'); ?>"><?php the_title(); ?></h2>
     <div class="<?php echo esc_attr($blockClass . '-grid-item-excerpt'); ?>"><?php the_excerpt(); ?></div>
