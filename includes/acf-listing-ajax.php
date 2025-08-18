@@ -16,11 +16,17 @@ function acf_listing_filter_callback()
 {
     // Get the selected term slug and search string from AJAX request
     $term_slug = isset($_POST['term']) ? sanitize_text_field($_POST['term']) : '';
+
+
     $search = isset($_POST['search']) ? sanitize_text_field($_POST['search']) : '';
+    $number = isset($_POST['number']) ? intval($_POST['number']) : -1;
+    $order = isset($_POST['order']) ? sanitize_text_field($_POST['order']) : 'newer';
 
     $args = array(
         'post_type' => 'event',
-        'posts_per_page' => -1,
+        'posts_per_page' => $number,
+        'orderby' => 'date',
+        'order' => ($order === 'older' ? 'ASC' : 'DESC'),
     );
 
     // If a term is selected, filter by taxonomy term
@@ -51,7 +57,7 @@ function acf_listing_filter_callback()
     $events = new WP_Query($args);
 
     ob_start();
-    
+    $blockClass = 'acf-listing'; // Assuming this is the class used in the listing block
     if ($events->have_posts()) {
         while ($events->have_posts()) {
             $events->the_post();

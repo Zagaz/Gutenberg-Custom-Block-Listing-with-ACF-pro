@@ -115,7 +115,23 @@ $blockID = 'listing-' . $block['id'];
                 }
                 ?>
             </select>
-            <?php // The SEARCH ?>
+
+            <?php // The Number of Items ?>
+            <select class="<?php echo esc_attr($blockClass . '-selector acf-listing-number-items'); ?>">
+                <option value="4">4</option>
+                <option value="8">8</option>
+                <option value="12">12</option>
+                <option value="16">16</option>
+                <option value="20">20</option>
+                <option value="-1">All</option>
+            </select>
+            <?php  // Order: Older or Newer?>
+            <select class="<?php echo esc_attr($blockClass . '-selector acf-listing-order'); ?>">
+                <option value="newer">Newest first</option>
+                <option value="older">Oldest first</option>
+            </select>
+
+            <?php // The Search ?>
             <input type="text" class="<?php echo esc_attr($blockClass . '-search acf-listing-search'); ?>" placeholder="Search..." />
         </div>
 
