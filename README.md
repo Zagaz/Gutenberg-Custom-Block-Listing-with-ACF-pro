@@ -55,9 +55,12 @@ This allows you to build visually engaging hero sections tailored to your site's
 
 ## Testing
 
-- Open your site in the frontend and/or the WordPress editor.
-- The hero section should display with your chosen background (YouTube video, image, or color).
-- For YouTube backgrounds, the video will cover the full width of the hero section and play according to your settings.
+- You will need to populate your WP install with some data. On the Admin Panel, you will the on the left the "Events" option and click on the "Add new Even". Fill the:
+   - Add Title
+   - Add a Content.
+   - Choose one of the tags: on the right side block settings (Concerts,conferences or Workshop).
+- Add this block (ACF Listing) wherever you want.(I strongly suggest to add it on the main page).
+
 
 ## Notes
 
