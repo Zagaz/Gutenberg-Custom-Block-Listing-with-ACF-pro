@@ -226,8 +226,9 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   gap: 5px;
+  margin-bottom: 8px;
 }
 .acf-listing .acf-listing-wrapper .acf-listing-grid .acf-listing-grid-inner .acf-listing-grid-item .acf-listing-grid-item-title {
   font-size: 1.2em;
@@ -317,8 +318,9 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   gap: 5px;
+  margin-bottom: 8px;
 }
 .wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-listing .acf-listing-wrapper .acf-listing-grid .acf-listing-grid-inner .acf-listing-grid-item .acf-listing-grid-item-title {
   font-size: 1.2em;
