@@ -44,7 +44,6 @@ This project provides a custom **WordPress** Listing block for creating a dynami
    - Choose one of the tags: on the right side block settings (Concerts,conferences or Workshop).
 - Add this block (ACF Listing) wherever you want.(I strongly suggest to add it on the main page).
 
-
 ## Notes
 
 - **ACF Pro is required** for block registration and flexible content fields.
