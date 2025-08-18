@@ -21,9 +21,9 @@
     <div class="<?php echo esc_attr($blockClass . '-grid-item-tags'); ?>">
         <?php if (!empty($term_name)) : ?>
             <?php echo wp_kses_post($term_tags); ?>
-            <h4 class="<?php echo esc_attr($blockClass . '-grid-item-term'); ?>">
+            <div class="<?php echo esc_attr($blockClass . '-grid-item-term'); ?>">
                 <?php echo esc_html(implode(', ', $term_name)); ?>
-            </h4>
+            </div>
         <?php endif; ?>
 
     </div>
