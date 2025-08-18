@@ -116,21 +116,33 @@ $blockID = 'listing-' . $block['id'];
                 ?>
             </select>
 
-            <?php // The Number of Items ?>
-            <select class="<?php echo esc_attr($blockClass . '-selector acf-listing-number-items'); ?>">
-                <option value="4">4</option>
-                <option value="8">8</option>
-                <option value="12">12</option>
-                <option value="16">16</option>
-                <option value="20">20</option>
-            </select>
-            <?php  // Order: Older or Newer?>
-            <select class="<?php echo esc_attr($blockClass . '-selector acf-listing-order'); ?>">
-                <option value="newer">Newest first</option>
-                <option value="older">Oldest first</option>
-            </select>
+            <?php // The Number of Items 
+            ?>
+            <div class="<?php echo esc_attr($blockClass . '-number-items'); ?>">
+                <p>Number of Items</p>
+                <select class="<?php echo esc_attr($blockClass . '-selector'); ?>">
+                    <option value="4">4</option>
+                    <option value="8">8</option>
+                    <option value="12">12</option>
+                    <option value="16">16</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
 
-            <?php // The Search ?>
+            <?php  // Order: Older or Newer
+            ?>
+            <div class="<?php echo esc_attr($blockClass . '-order'); ?>">
+                <p>Order: Older or Newer</p>
+
+                <select class="<?php echo esc_attr($blockClass . '-selector'); ?>">
+                    <option value="newer">Newest first</option>
+                    <option value="older">Oldest first</option>
+                </select>
+
+            </div>
+
+            <?php // The Search 
+            ?>
             <input type="text" class="<?php echo esc_attr($blockClass . '-search acf-listing-search'); ?>" placeholder="Search..." />
         </div>
 
