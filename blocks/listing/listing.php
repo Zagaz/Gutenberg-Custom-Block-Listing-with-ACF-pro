@@ -34,8 +34,6 @@ if (!empty($block['anchor'])) {
     $id = $block['anchor'];
 }
 
-
-
 // Block
 $block_name = 'acf-listing'; // Block name (should be lowercase and without spaces)
 
@@ -155,14 +153,14 @@ $blockID = 'listing-' . $block['id'];
                 }
                 ?>
             </div>
+            <div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
+                <button class="<?php echo esc_attr($blockClass . '-pagination-button'); ?>">Previous</button>
+                <button class="<?php echo esc_attr($blockClass . '-pagination-button'); ?>">Next</button>
+            </div>
         </div>
-        <?php // THE PAGINATION  
-        ?>
-    <div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
-        Here goes the pagination
-    </div>
 
     </div>
+    
 </div>
 <?php
 wp_reset_postdata();
