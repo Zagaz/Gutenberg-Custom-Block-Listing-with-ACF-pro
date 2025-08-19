@@ -39,6 +39,7 @@
         <?php 
         $acf_field = get_field('block_field') ? get_field('block_field') : 'Default Value';
         echo esc_html($acf_field); ?>
+        
     </p>
 
 <?php 
