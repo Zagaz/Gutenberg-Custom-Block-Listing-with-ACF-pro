@@ -31,4 +31,20 @@
 
     <h2 class="<?php echo esc_attr($blockClass . '-grid-item-title'); ?>"><?php the_title(); ?></h2>
     <div class="<?php echo esc_attr($blockClass . '-grid-item-excerpt'); ?>"><?php the_excerpt(); ?></div>
-</div>
+
+    <!-- Example: Render the ACF 'block_field' value -->
+
+    <p>
+        ACF Field data:
+        <?php 
+        $acf_field = get_field('block_field') ? get_field('block_field') : 'Default Value';
+        echo esc_html($acf_field); ?>
+        
+    </p>
+
+<?php 
+
+
+?>
+
+</div>  

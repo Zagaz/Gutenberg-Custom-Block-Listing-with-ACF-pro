@@ -1,3 +1,24 @@
+/* Frontend grid layout for ACF Listing Block */
+.acf-listing .acf-listing-wrapper .acf-listing-grid .acf-listing-grid-inner {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 570px) {
+  .acf-listing .acf-listing-wrapper .acf-listing-grid .acf-listing-grid-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 768px) {
+  .acf-listing .acf-listing-wrapper .acf-listing-grid .acf-listing-grid-inner {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .acf-listing .acf-listing-wrapper .acf-listing-grid .acf-listing-grid-inner {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 /**
  * ACF Hero Block Styles
  * Unified styling for both frontend and editor
