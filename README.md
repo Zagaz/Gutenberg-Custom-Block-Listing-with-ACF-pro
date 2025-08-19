@@ -1,8 +1,20 @@
 
-# Gutenberg Custom Block Listing with ACF pro
- ## Description
 
-This project provides a custom **WordPress** Listing block for creating a dynamic listing section using **Advanced Custom Fields (ACF) Pro**. 
+# Gutenberg Custom Block Listing with ACF Pro amd AJAX
+
+## Description
+
+This plugin adds a powerful, flexible listing block to the WordPress block editor, allowing you to display custom post types (such as Events) in a modern, filterable, and paginated grid. Built with Advanced Custom Fields (ACF) Pro, it enables you to easily manage and display custom fields, taxonomies, and post data in both the backend and frontend.
+
+**Key Features:**
+- Custom Gutenberg block for listing any post type (default: Events)
+- AJAX-powered filtering, search, and pagination
+- Fully responsive grid layout
+- Integrates with ACF Pro for custom fields and flexible content
+- Easy to style and extend for your project needs
+- Works seamlessly in both the WordPress editor and on the frontend
+
+Ideal for building event listings, directories, portfolios, or any dynamic content section that requires custom fields and advanced filtering.
 
 ## Live Demo
 
