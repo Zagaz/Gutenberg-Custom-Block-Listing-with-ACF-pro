@@ -67,35 +67,20 @@ $blockClass = 'acf-listing';
 $blockID = 'listing-' . $block['id'];
 
 ?>
-<div class="<?php echo esc_attr($blockClass . ' ' . $check_id_preview);  ?>" id="<?php echo esc_attr($blockID); ?>">
-
-    <div class="<?php echo esc_attr($blockClass . '-wrapper'); ?>" style="<?php echo esc_attr($style); ?>">
-
-        <div class="<?php echo esc_attr($blockClass . '-type'); ?>">
-            <?php
-            if (!$post_type_name || !empty($post_type_name)) : ?>
-                <h1 class="<?php echo esc_attr($blockClass . '-type-title'); ?>">
+<div class="acf-listing" id="<?php echo esc_attr($blockID); ?>">
+    <div class="acf-listing-wrapper">
+        <div class="acf-listing-type">
+            <?php if (!$post_type_name || !empty($post_type_name)) : ?>
+                <h1 class="acf-listing-type-title">
                     List of:
-                    <?php
-                    $post_type_name = ucfirst($post_type_name);
-                    echo esc_html($post_type_name);
-                    ?>
+                    <?php $post_type_name = ucfirst($post_type_name); echo esc_html($post_type_name); ?>
                 </h1>
             <?php endif; ?>
         </div>
-
-        <?php // This is the INPUTS section  
-        ?>
-        <div class="<?php echo esc_attr($blockClass . '-inputs'); ?>">
-
-            <?php //  the ajax must use the <select> element from this select 
-            ?>
-
-            <!-- The AJAX will use this <select> to filter the cards below -->
-            <select class="<?php echo esc_attr($blockClass . '-selector acf-listing-selector'); ?>">
+        <div class="acf-listing-inputs">
+            <select class="acf-listing-selector acf-listing-selector">
                 <option value="">Select an option</option>
                 <?php
-                // here I need the list of the terms related to 'events' post type.
                 $post_type_taxonomies = get_object_taxonomies('event', 'names');
                 foreach ($post_type_taxonomies as $taxonomy) {
                     $terms = get_terms(array(
@@ -110,12 +95,9 @@ $blockID = 'listing-' . $block['id'];
                 }
                 ?>
             </select>
-
-            <?php // The Number of Items 
-            ?>
-            <div class="<?php echo esc_attr($blockClass . '-number-items-wrapper'); ?>">
+            <div class="acf-listing-number-items-wrapper">
                 <p>Number of Items</p>
-                <select class="<?php echo esc_attr($blockClass . '-selector' . ' ' . $blockClass . '-number-items'); ?>">
+                <select class="acf-listing-selector acf-listing-number-items">
                     <option value="4">4</option>
                     <option value="8">8</option>
                     <option value="12">12</option>
@@ -123,31 +105,21 @@ $blockID = 'listing-' . $block['id'];
                     <option value="20">20</option>
                 </select>
             </div>
-
-            <?php  // Order: Older or Newer
-            ?>
-            <div class="<?php echo esc_attr($blockClass . '-order-wrapper'); ?>">
+            <div class="acf-listing-order-wrapper">
                 <p>Order:</p>
-                <select class="<?php echo esc_attr($blockClass . '-selector' . ' ' . $blockClass . '-order'); ?>">
+                <select class="acf-listing-selector acf-listing-order">
                     <option value="newer">Newest first</option>
                     <option value="older">Oldest first</option>
                 </select>
             </div>
-
-            <?php // The Search 
-            ?>
-            <input type="text" class="<?php echo esc_attr($blockClass . '-search' . ' ' . $blockClass . '-text'); ?>" placeholder="Search..." />
+            <input type="text" class="acf-listing-search acf-listing-text" placeholder="Search..." />
         </div>
-        
-        <?php // THE GRID -  The fetch data from ajax inpacts in this grid  
-        ?>
-        <div class="<?php echo esc_attr($blockClass . '-grid'); ?>">
-            <div class="<?php echo esc_attr($blockClass . '-grid-inner'); ?>">
+        <div class="acf-listing-grid">
+            <div class="acf-listing-grid-inner">
                 <?php
                 if ($events->have_posts()) {
                     while ($events->have_posts()) {
                         $events->the_post();
-                        // Use acf-listing shared card template for rendering
                         include dirname(dirname(__FILE__)) . '/includes/acf-listing-card.php';
                     }
                 } else {
@@ -155,11 +127,8 @@ $blockID = 'listing-' . $block['id'];
                 }
                 ?>
             </div>
-            <?php // Pagination buttons 
-            ?>
-            <div class="<?php echo esc_attr($blockClass . '-pagination'); ?>">
-                <?php  // Pagination goes here 
-                ?>
+            <div class="acf-listing-pagination">
+                <?php // Pagination goes here ?>
             </div>
         </div>
     </div>
