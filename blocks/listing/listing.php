@@ -16,6 +16,7 @@
 $post_type = 'event'; // Custom post type slug
 $posts_per_page = -1; // Number of posts to display, -1 for all
 
+
 // Query for events
 $events = new WP_Query(array(
     'post_type' => $post_type,
@@ -67,6 +68,10 @@ $blockClass = 'acf-listing';
 $blockID = 'listing-' . $block['id'];
 
 ?>
+
+
+
+
 <div class="acf-listing" id="<?php echo esc_attr($blockID); ?>">
     <div class="acf-listing-wrapper">
         <div class="acf-listing-type">
@@ -130,6 +135,8 @@ $blockID = 'listing-' . $block['id'];
             <div class="acf-listing-pagination">
                 <?php // Pagination goes here ?>
             </div>
+
+
         </div>
     </div>
 </div>
