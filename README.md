@@ -1,6 +1,6 @@
 
 
-# Gutenberg Custom Block Listing with ACF Pro amd AJAX
+# Gutenberg Custom Block Listing with ACF Pro and AJAX
 
 ## Description
 
