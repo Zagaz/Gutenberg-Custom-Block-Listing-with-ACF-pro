@@ -44,6 +44,9 @@ $block_align = $block_name . '-text-align-' . $block_align_text;
 
 // Add editor and preview classes if in editor
 
+
+// Initialize $classes to avoid undefined variable warning
+$classes = '';
 if (!empty($block['className'])) {
     $classes .= ' ' . $block['className'];
 }
